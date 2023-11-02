@@ -20,7 +20,9 @@ const Register = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const res = await axios.post("http://localhost:8800/api/auth/register", inputs);
+			const res = await axios.post("http://localhost:8800/api/auth/register", inputs,{
+        withCredentials:true
+      });
 			console.log(res.data);
 			navigate("/login")
 		} catch (err) {

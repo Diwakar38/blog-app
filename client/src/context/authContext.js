@@ -13,7 +13,9 @@ export const AuthContexProvider = ({ children }) => {
         headers: { "Content-Type": "application/json" },
         withCredentials: true
     }
-    const res = await axios.post("http://localhost:8800/api/auth/login", inputs, config)
+    const res = await axios.post("http://localhost:8800/api/auth/login", inputs, config, {
+      withCredentials: true
+    })
     if(res) setCurrentUser(res.data);
 };
 

@@ -26,7 +26,7 @@ export const getPost = (req, res) => {
 
 export const addPost = (req, res) => {
     const token = req.cookies.access;
-    console.log("heyy");
+    // console.log("heyy");
     // console.log(token);
     if (!token) return res.status(401).json("Not authenticated")
     jwt.verify(token, "secretjwtkey", (err, userInfo) => {
@@ -43,13 +43,13 @@ export const addPost = (req, res) => {
             req.body.cat,
         ]
 
-        // console.log(values);
+        console.log(values);
 
         db.query(q, [values], (err, data) => {
-            if (err) return res.status(500).json(err)
-
-            return res.json("Post has been created")
-        })
+            if (err) return res.status(500).json(err);
+            console.log("Inside addPost db query function");
+            return res.status(200).json("Post has been created.");
+        });
     })
 }
 

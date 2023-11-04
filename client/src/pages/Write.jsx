@@ -21,7 +21,7 @@ const Write = () => {
       const res = await axios.post("http://localhost:8800/api/upload", formData, {withCredentials : true});
       return res.data;
     } catch (err) {
-      console.log("HEY");
+      // console.log("HEY");
       console.log(err);
     }
   };
@@ -42,7 +42,7 @@ const Write = () => {
 			}, {
         withCredentials: true
 			})
-      console.log("hey");
+      // console.log("hey");
 			navigate("/")
 		} catch (err) {
 			console.log(err);

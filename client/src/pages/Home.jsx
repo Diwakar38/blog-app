@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import URL from "../Back.js"
 
 const Home = () => {
   // const navigator = useNavigate;
@@ -13,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/api/posts${cat}`,{
+        const res = await axios.get(`${URL}/api/posts${cat}`,{
           withCredentials: true
         });
         setPosts(res.data);

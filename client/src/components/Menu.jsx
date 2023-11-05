@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
+import URL from "../Back.js"
 const Menu = ({cat}) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/api/posts/?cat=${cat}`);
+        const res = await axios.get(`${URL}/api/posts/?cat=${cat}`);
         setPosts(res.data);
       } catch (err) {
         console.log(err);

@@ -4,6 +4,7 @@ import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import moment from "moment";
+import URL from "../Back.js"
 
 const Write = () => {
   const state = useLocation().state;
@@ -18,7 +19,7 @@ const Write = () => {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const res = await axios.post("http://localhost:8800/api/upload", formData, {withCredentials : true});
+      const res = await axios.post(`${URL}/api/upload`, formData, {withCredentials : true});
       return res.data;
     } catch (err) {
       // console.log("HEY");
@@ -31,12 +32,12 @@ const Write = () => {
     const imgUrl = await upload();
     
     try {
-      state ? await axios.put(`http://localhost:8800/api/posts/${state.id}`, {
+      state ? await axios.put(`${URL}/api/posts/${state.id}`, {
         title, desc: value, cat, img: file ? imgUrl : "",
         date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss")
 			}, {
         withCredentials: true
-			}) : await axios.post(`http://localhost:8800/api/posts/`, {
+			}) : await axios.post(`${URL}/api/posts/`, {
         title, desc: value, cat, img: file ? imgUrl : "",
 				date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss")
 			}, {

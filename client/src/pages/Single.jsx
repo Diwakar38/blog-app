@@ -6,6 +6,7 @@ import Menu from "../components/Menu"
 import moment from "moment"
 import axios from "axios"
 import { AuthContext } from '../context/authContext'
+import URL from "../Back.js"
 const Single = () => {
 	const [post, setPost] = useState([])
 	const navigate = useNavigate()
@@ -19,7 +20,7 @@ const Single = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const res = await axios.get(`http://localhost:8800/api/posts/${postId}`,{
+				const res = await axios.get(`${URL}/api/posts/${postId}`,{
           withCredentials : true
         })
 				setPost(res.data)
@@ -33,7 +34,7 @@ const Single = () => {
 	const handleDelete = async () => {
 		try {
 			// console.log(access_token)
-			await axios.delete(`http://localhost:8800/api/posts/${postId}`, {
+			await axios.delete(`${URL}/api/posts/${postId}`, {
 				withCredentials: true
 			});
 			navigate("/")

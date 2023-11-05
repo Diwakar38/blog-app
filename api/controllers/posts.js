@@ -27,7 +27,7 @@ export const getPost = (req, res) => {
 export const addPost = (req, res) => {
     const token = req.cookies.access;
     // console.log("heyy");
-    // console.log(token);
+    console.log(token);
     if (!token) return res.status(401).json("Not authenticated, no cookies")
     jwt.verify(token, "secretjwtkey", (err, userInfo) => {
         if (err) return res.status(401).json("Token is not valid!!")

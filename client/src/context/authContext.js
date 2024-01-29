@@ -22,7 +22,7 @@ export const AuthContexProvider = ({ children }) => {
 
 const logout = async (inputs) => {
   await axios.post(`${URL}/api/auth/logout`, {
-      withCredentials: true
+      withCredentials: truehttp://localhost:3000/
   });
   setCurrentUser(null);
 };

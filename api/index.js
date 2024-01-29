@@ -11,7 +11,8 @@ const app = Express()
 app.use(Express.json())
 app.use(cookieParser());
 app.use(cors({
-    origin: 'https://blogapp-frontend-7zxm.onrender.com',
+    // origin: 'https://blogapp-frontend-7zxm.onrender.com',
+    origin: 'http://localhost:3000',
     credentials: true
 }))
 

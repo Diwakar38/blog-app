@@ -1,11 +1,11 @@
 import mysql from "mysql"
 
-// export const db = mysql.createConnection({
-//   host: "localhost",
-//   user: "Project",
-//   password: "12345678",
-//   database: "blog"
-// });
+export const db = mysql.createConnection({
+  host: "localhost",
+  user: "Project",
+  password: "12345678",
+  database: "blog"
+});
 
 // export const db = mysql.createConnection({
 //     host: "sql12.freesqldatabase.com",
@@ -14,12 +14,12 @@ import mysql from "mysql"
 //     database: "sql12658492"
 // });
 
-export const db = mysql.createConnection({
-    host: "btudl4ng9x3bh7yvg5ej-mysql.services.clever-cloud.com",
-    user: "utp21egfd5urcbw4",
-    password: "uWRrFIx61LQYR8bU6ClG",
-    database: "btudl4ng9x3bh7yvg5ej"
-});
+// export const db = mysql.createConnection({
+//     host: "btudl4ng9x3bh7yvg5ej-mysql.services.clever-cloud.com",
+//     user: "utp21egfd5urcbw4",
+//     password: "uWRrFIx61LQYR8bU6ClG",
+//     database: "btudl4ng9x3bh7yvg5ej"
+// });
 
 db.connect((error) => {
     if (error) {
